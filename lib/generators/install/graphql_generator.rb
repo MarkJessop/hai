@@ -9,8 +9,6 @@ module Hai
       end
 
       def install_graphql_ruby
-        gem 'graphql'
-        run "bundle install"
         run "rails generate graphql:install"
       end
 
