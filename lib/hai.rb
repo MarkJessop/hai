@@ -12,15 +12,18 @@ require_relative "hai/read"
 require_relative "hai/create"
 require_relative "hai/update"
 require_relative "hai/delete"
+require_relative "hai/restricted_attributes"
 
 require_relative "hai/policies"
 require_relative "hai/action_mods"
 require "hai/railtie" if defined?(Rails)
+require "generators/rest/install_generator" if defined?(Rails)
+require "generators/install/graphql_generator" if defined?(Rails)
 
 module Hai
   class Error < StandardError
   end
-  class Rest
+  module Rest
     class Engine < ::Rails::Engine
       isolate_namespace Hai
     end
